@@ -1,0 +1,24 @@
+-- DISPLAY CUSTOMER LIST WITH TOTAL ORDER
+
+SELECT c.customer_id, c.customer_name, COUNT(o.order_id) AS Total_orders
+FROM customers c
+LEFT JOIN orders o ON c.customer_id=o.customer_id
+GROUP BY c.customer_id
+ORDER BY Total_orders DESC;
+
+
+-- DISPLAY PRODUCTS LIST WITH MOST ORDER PRODUCT
+
+SELECT p.product_id, COALESCE(SUM(od.qty),0) AS TotalQuantity
+FROM products p
+LEFT JOIN order_details od ON p.product_id=od.product_id
+GROUP BY p.product_id
+ORDER BY SUM(od.qty) ASC;
+
+-- DISPLAY METHOD PAYMENT WITH MOST FREQUENTLY PAYMENT
+
+SELECT pm.payment_method_id, pm.method_name, pm.code, COUNT(o.payment_methode_id) as total_use
+FROM payment_methods pm
+LEFT JOIN orders o ON pm.payment_method_id=o.payment_methode_id
+GROUP BY pm.payment_method_id
+ORDER BY total_use DESC;

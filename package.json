@@ -1,0 +1,28 @@
+{
+  "name": "koala-test",
+  "version": "1.0.0",
+  "description": "Coding Test at Koala",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "npm test",
+    "start": "nodemon --experimental-modules --es-module-specifier-resolution=node index.js"
+  },
+  "author": "rezzaacm",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "joi": "^17.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.95.6",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "objection": "^2.2.15",
+    "pg": "^8.6.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
