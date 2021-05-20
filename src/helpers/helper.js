@@ -63,7 +63,7 @@ export const generateOrderNumber = async () => {
     const order = await Order.query()
         .select('*')
         .whereRaw(`EXTRACT(MONTH FROM order_date) = ${moment().format('M')}`)
-        .orderByRaw(`EXTRACT (MONTH FROM order_date) = ${moment().format('M')} ASC`)
+        .orderBy('order_date', 'DESC')
         .limit(1)
 
     let result;

@@ -1,7 +1,13 @@
 # CODING TEST KOALA REST API
 
 REST FULL API TEST WITH NODEJS AND DB POSTGRES
-app running on port: 3030
+
+### How to run
+ - clone repo : git clone https://github.com/RezzaACM/Coding-Test-Koala
+ - Enter into repo
+ - Npm install
+ - Npm run start
+ - App running on port 3030
 
 
 ## Tools
@@ -27,7 +33,6 @@ app running on port: 3030
 **database available at root folder with name db.sql**
 
 ## Documentation
-
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/98afe9a8294b2eb936a5)
 

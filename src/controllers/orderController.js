@@ -7,6 +7,47 @@ import { CustomersController } from "./customerController";
 export class OrderController {
 
 
+    async index(req, res) {
+        const list = await Order.query();
+
+        res.status(200).json({
+            status: true,
+            data: list
+        })
+    }
+
+
+    async detail(req, res) {
+        const list = await OrderDetails.query()
+            .select('*',)
+            .join('orders as b', 'order_details.order_id', '=', 'b.order_id')
+            .where('order_details.order_id', '=', req.params.id)
+
+        const data = [];
+        const details = [];
+        list.forEach(res => {
+            details.push({
+                order_detail_id: res.order_detail_id,
+                product_id: res.product_id,
+                qty: res.qty
+            })
+        });
+        data.push({
+            order_id: list[0].order_id,
+            customer_id: list[0].customer_id,
+            order_number: list[0].order_number,
+            payment_method_id: list[0].payment_method_id,
+            created_date: list[0].created_date,
+            details: details
+        })
+
+        res.status(200).json({
+            status: true,
+            data: data
+        })
+    }
+
+
     /**
      * POST /order
      * @param {*} req 
